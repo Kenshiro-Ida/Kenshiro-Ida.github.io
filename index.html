@@ -1,0 +1,28 @@
+<div style="perspective: 600px; width: 200px; height: 200px;">
+    <div style="
+      width: 100px;
+      height: 100px;
+      position: relative;
+      transform-style: preserve-3d;
+      animation: rotate 5s infinite linear;
+    ">
+      <div style="position: absolute; width: 100px; height: 100px; background: red; transform: rotateY(0deg) translateZ(50px);"></div>
+      <div style="position: absolute; width: 100px; height: 100px; background: blue; transform: rotateY(90deg) translateZ(50px);"></div>
+      <div style="position: absolute; width: 100px; height: 100px; background: green; transform: rotateY(180deg) translateZ(50px);"></div>
+      <div style="position: absolute; width: 100px; height: 100px; background: yellow; transform: rotateY(-90deg) translateZ(50px);"></div>
+      <div style="position: absolute; width: 100px; height: 100px; background: cyan; transform: rotateX(90deg) translateZ(50px);"></div>
+      <div style="position: absolute; width: 100px; height: 100px; background: magenta; transform: rotateX(-90deg) translateZ(50px);"></div>
+    </div>
+  </div>
+  
+  <style>
+  @keyframes rotate {
+    from {
+      transform: rotateX(0deg) rotateY(0deg);
+    }
+    to {
+      transform: rotateX(360deg) rotateY(360deg);
+    }
+  }
+  </style>
+  
