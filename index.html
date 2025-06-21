@@ -1,9 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Aditya Singh Rawat - AI & Blockchain Developer</title>
+    <title>Aditya Singh Rawat - Portfolio</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <style>
         * {
             margin: 0;
@@ -12,21 +18,10 @@
         }
 
         body {
-            font-family: 'Courier New', monospace;
-            background: #0a0a0a;
-            color: #00ff88;
-            overflow-x: hidden;
+            font-family: 'Poppins', sans-serif;
+            background: #fdfcf8;
+            color: #333;
             line-height: 1.6;
-        }
-
-        .matrix-bg {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: -1;
-            opacity: 0.1;
         }
 
         .container {
@@ -38,12 +33,11 @@
         /* Header */
         header {
             padding: 20px 0;
-            background: rgba(0, 0, 0, 0.9);
-            backdrop-filter: blur(10px);
-            border-bottom: 2px solid #00ff88;
+            background: #fdfcf8;
             position: sticky;
             top: 0;
             z-index: 100;
+            border-bottom: 1px solid #eee;
         }
 
         nav {
@@ -54,9 +48,9 @@
 
         .logo {
             font-size: 24px;
-            font-weight: bold;
-            text-shadow: 0 0 10px #00ff88;
-            animation: glow 2s ease-in-out infinite alternate;
+            font-weight: 600;
+            color: #0077b5;
+            /* LinkedIn Blue, as a sample */
         }
 
         .nav-links {
@@ -66,422 +60,615 @@
         }
 
         .nav-links a {
-            color: #00ff88;
+            color: #555;
             text-decoration: none;
-            transition: all 0.3s ease;
-            padding: 5px 10px;
-            border: 1px solid transparent;
+            transition: color 0.3s ease;
+            font-weight: 500;
         }
 
         .nav-links a:hover {
-            border: 1px solid #00ff88;
-            box-shadow: 0 0 15px #00ff88;
-            transform: scale(1.05);
+            color: #0077b5;
         }
 
         /* Hero Section */
         .hero {
-            height: 100vh;
             display: flex;
             align-items: center;
             justify-content: center;
-            text-align: center;
-            position: relative;
+            min-height: 90vh;
+            padding: 50px 0;
         }
 
-        .hero-content h1 {
-            font-size: 4rem;
+        .hero-container {
+            display: flex;
+            gap: 50px;
+            align-items: center;
+            justify-content: space-between;
+            width: 100%;
+        }
+
+        .hero-left {
+            flex: 1.2;
+        }
+
+        .hero-right {
+            flex: 1;
+        }
+
+        .profile-pic {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            object-fit: cover;
             margin-bottom: 20px;
-            text-shadow: 0 0 20px #00ff88;
-            animation: typewriter 3s steps(20) 1s forwards;
-            white-space: nowrap;
-            overflow: hidden;
-            border-right: 2px solid #00ff88;
+            border: 5px solid #fff;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
         }
 
-        .hero-content .subtitle {
+        .hero-left h1 {
+            font-size: 3.5rem;
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+
+        .name-gradient {
+            background: linear-gradient(45deg, #0077b5, #ffa500);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-fill-color: transparent;
+        }
+
+        .hero-left .subtitle {
             font-size: 1.5rem;
-            color: #00ccff;
-            margin-bottom: 30px;
-            animation: fadeInUp 1s ease 2s forwards;
-            opacity: 0;
+            font-weight: 500;
+            color: #555;
+            margin-bottom: 5px;
         }
 
-        .hero-content .description {
+        .hero-left .university {
             font-size: 1.1rem;
-            max-width: 600px;
-            margin: 0 auto 40px;
-            animation: fadeInUp 1s ease 2.5s forwards;
-            opacity: 0;
+            color: #777;
+            margin-bottom: 20px;
         }
 
-        .cta-button {
-            display: inline-block;
-            padding: 15px 30px;
-            background: linear-gradient(45deg, #00ff88, #00ccff);
-            color: #000;
+        .hero-left .description {
+            font-size: 1rem;
+            max-width: 500px;
+            margin-bottom: 30px;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 30px;
+        }
+
+        .btn {
+            padding: 12px 25px;
+            border-radius: 25px;
             text-decoration: none;
-            font-weight: bold;
-            border-radius: 30px;
+            font-weight: 600;
             transition: all 0.3s ease;
-            animation: fadeInUp 1s ease 3s forwards;
-            opacity: 0;
-            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
         }
 
-        .cta-button:hover {
-            transform: scale(1.1);
-            box-shadow: 0 0 30px #00ff88;
+        .btn-primary {
+            background-color: #0077b5;
+            color: #fff;
+            border: 1px solid #0077b5;
         }
 
-        /* Sections */
-        .section {
-            padding: 100px 0;
-            position: relative;
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 4px 10px rgba(0, 119, 181, 0.3);
         }
 
-        .section h2 {
-            font-size: 3rem;
-            text-align: center;
-            margin-bottom: 60px;
-            text-shadow: 0 0 15px #00ff88;
+        .btn-secondary {
+            background-color: #fff;
+            color: #333;
+            border: 1px solid #ccc;
         }
 
-        /* Skills Grid */
-        .skills-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-            margin-top: 50px;
+        .btn-secondary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            border-color: #0077b5;
         }
 
-        .skill-card {
-            background: rgba(0, 255, 136, 0.1);
-            border: 1px solid #00ff88;
-            border-radius: 15px;
-            padding: 30px;
-            text-align: center;
-            transition: all 0.3s ease;
-            position: relative;
+        .social-links a {
+            color: #555;
+            font-size: 24px;
+            margin-right: 20px;
+            transition: color 0.3s ease;
+        }
+
+        .social-links a:hover {
+            color: #0077b5;
+        }
+
+        /* Skills Card */
+        .skills-card {
+            background: #fff;
+            padding: 25px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            transform: perspective(1000px) rotateY(-5deg);
+            transition: transform 0.5s ease;
+        }
+
+        .skills-card:hover {
+            transform: perspective(1000px) rotateY(0deg);
+        }
+
+        .internship-status {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-weight: 500;
+            margin-bottom: 20px;
+        }
+
+        .internship-status .dot {
+            width: 10px;
+            height: 10px;
+            background-color: #2ecc71;
+            border-radius: 50%;
+        }
+
+        .progress-bar-container {
+            background-color: #eee;
+            height: 8px;
+            border-radius: 4px;
+            margin-bottom: 10px;
             overflow: hidden;
         }
 
-        .skill-card::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: linear-gradient(45deg, transparent, rgba(0, 255, 136, 0.1), transparent);
-            transform: rotate(45deg);
-            transition: all 0.5s ease;
+        .progress-bar {
+            background: linear-gradient(90deg, #0077b5, #00bfff);
+            height: 100%;
+            border-radius: 4px;
         }
 
-        .skill-card:hover::before {
-            animation: shimmer 1s ease forwards;
-        }
-
-        .skill-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 20px 40px rgba(0, 255, 136, 0.3);
-        }
-
-        .skill-icon {
-            font-size: 3rem;
-            margin-bottom: 20px;
-            display: block;
-        }
-
-        /* Projects Grid */
-        .projects-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 40px;
-            margin-top: 50px;
-        }
-
-        .project-card {
-            background: rgba(0, 204, 255, 0.1);
-            border: 1px solid #00ccff;
-            border-radius: 15px;
-            padding: 30px;
-            transition: all 0.3s ease;
-            position: relative;
-        }
-
-        .project-card:hover {
-            transform: scale(1.05);
-            box-shadow: 0 0 30px rgba(0, 204, 255, 0.5);
-        }
-
-        .project-card h3 {
-            color: #00ccff;
-            margin-bottom: 15px;
-            font-size: 1.5rem;
-        }
-
-        .project-tags {
+        .progress-label {
             display: flex;
-            flex-wrap: wrap;
-            gap: 10px;
-            margin-top: 20px;
-        }
-
-        .tag {
-            background: rgba(0, 255, 136, 0.2);
-            color: #00ff88;
-            padding: 5px 12px;
-            border-radius: 20px;
-            font-size: 0.8rem;
-            border: 1px solid #00ff88;
-        }
-
-        /* Contact Section */
-        .contact {
-            background: linear-gradient(135deg, rgba(0, 255, 136, 0.1), rgba(0, 204, 255, 0.1));
-            border-radius: 20px;
-            padding: 60px;
-            text-align: center;
-        }
-
-        .contact-links {
-            display: flex;
-            justify-content: center;
-            gap: 40px;
-            margin-top: 40px;
-            flex-wrap: wrap;
-        }
-
-        .contact-link {
-            color: #00ff88;
-            text-decoration: none;
-            font-size: 1.2rem;
-            padding: 15px 25px;
-            border: 2px solid #00ff88;
-            border-radius: 30px;
-            transition: all 0.3s ease;
-        }
-
-        .contact-link:hover {
-            background: #00ff88;
-            color: #000;
-            transform: scale(1.1);
-            box-shadow: 0 0 20px #00ff88;
+            justify-content: space-between;
+            font-size: 0.9rem;
+            color: #777;
         }
 
         /* Footer */
         footer {
             text-align: center;
             padding: 40px 0;
-            border-top: 1px solid #00ff88;
+            border-top: 1px solid #eee;
             margin-top: 100px;
         }
 
-        /* Chat Assistant */
-        #chat-assistant {
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            z-index: 9999;
-            font-family: monospace;
+        /* Responsive */
+        @media (max-width: 992px) {
+            .hero-container {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .hero-left,
+            .hero-right {
+                width: 100%;
+                max-width: 600px;
+            }
+
+            .profile-pic {
+                margin-left: auto;
+                margin-right: auto;
+            }
+
+            .hero-buttons {
+                justify-content: center;
+            }
+
+            .social-links {
+                text-align: center;
+            }
+
+            .skills-card {
+                transform: none;
+                margin-top: 40px;
+            }
         }
 
-        #chat-toggle {
-            background:transparent;
-            border: none;
-            padding: 12px 14px;
-            border-radius: 50%;
-            font-size: 1.5rem;
-            cursor: pointer;
-            transition: transform 0.3s;
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+                /* Simplification for this example */
+            }
+
+            .hero-left h1 {
+                font-size: 2.8rem;
+            }
+
+            .about-container {
+                flex-direction: column;
+            }
+
+            .about-sidebar {
+                position: static;
+                width: 100%;
+                margin-bottom: 30px;
+            }
         }
 
-        #chat-toggle:hover {
-            transform: scale(1.1);
+        /* About Section */
+        .about-section {
+            padding: 80px 0;
+            background-color: #fdfcf8;
         }
 
-        #chat-window {
-            width: 300px;
-            background: #000;
-            border: 2px solid #00ff88;
-            border-radius: 10px;
-            overflow: hidden;
-            display: none;
-            flex-direction: column;
-            position: absolute;
-            bottom: 60px;
-            right: 0;
-            box-shadow: 0 0 20px #00ff88;
-            max-height: 400px;
+        .about-container {
+            display: flex;
+            gap: 40px;
+            align-items: flex-start;
         }
 
-        #chat-header {
-            background: #00ff88;
-            color: #000;
-            padding: 10px;
+        .about-sidebar {
+            flex: 0 0 300px;
+            position: sticky;
+            top: 120px;
             text-align: center;
-            font-weight: bold;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
+            background: #fff;
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.07);
+            border: 1px solid #f0f0f0;
         }
 
-        #chat-close {
-            background: none;
-            border: none;
-            color: #000;
-            font-size: 1.2rem;
-            cursor: pointer;
-            padding: 0;
-            width: 20px;
-            height: 20px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
+        .about-sidebar .profile-pic-large {
+            width: 140px;
+            height: 140px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-bottom: 20px;
+            border: 5px solid #fff;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
         }
 
-        #chat-messages {
-            padding: 10px;
-            height: 200px;
-            overflow-y: auto;
+        .about-sidebar h2 {
+            font-size: 1.6rem;
+            margin-bottom: 5px;
+            font-weight: 600;
+        }
+
+        .about-sidebar .subtitle {
+            font-size: 1rem;
+            color: #555;
+            margin-bottom: 20px;
+        }
+
+        .about-sidebar hr {
+            border: 0;
+            height: 1px;
+            background: #eee;
+            margin: 20px 0;
+        }
+
+        .contact-info {
+            list-style: none;
+            text-align: left;
+            margin: 20px 0;
+        }
+
+        .contact-info li {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 15px;
+            color: #555;
             font-size: 0.9rem;
         }
 
-        #chat-messages .user {
-            text-align: right;
-            color: #00ccff;
-            margin: 5px 0;
-            padding: 5px 10px;
-            background: rgba(0, 204, 255, 0.1);
-            border-radius: 10px;
-            margin-left: 20px;
+        .contact-info li i {
+            font-size: 20px;
+            color: #0077b5;
         }
 
-        #chat-messages .bot {
-            text-align: left;
-            color: #00ff88;
-            margin: 5px 0;
-            padding: 5px 10px;
-            background: rgba(0, 255, 136, 0.1);
-            border-radius: 10px;
-            margin-right: 20px;
+        .about-sidebar .social-links a {
+            font-size: 28px;
         }
 
-        #chat-form {
-            display: flex;
-            border-top: 1px solid #00ff88;
-        }
-
-        #chat-input {
+        .about-content {
             flex: 1;
-            padding: 10px;
-            border: none;
-            background: #111;
-            color: #00ff88;
-            outline: none;
-            font-size: 1rem;
         }
 
-        #chat-form button {
-            background: #00ff88;
-            color: #000;
-            border: none;
-            padding: 10px 15px;
-            cursor: pointer;
-            font-weight: bold;
+        .content-card {
+            background: #fff;
+            padding: 35px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            margin-bottom: 30px;
+            border: 1px solid #f0f0f0;
         }
 
-        /* Interactive Elements */
-        .interactive-bg {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            pointer-events: none;
-            z-index: -1;
+        .content-card h3 {
+            font-size: 1.8rem;
+            margin-bottom: 25px;
+            font-weight: 600;
         }
 
-        .particle {
-            position: absolute;
-            width: 4px;
-            height: 4px;
-            background: #00ff88;
+        .content-card p {
+            margin-bottom: 15px;
+            color: #555;
+        }
+
+        .academic-info h4 {
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 5px;
+        }
+
+        .academic-info .university {
+            color: #0077b5;
+            font-weight: 500;
+        }
+
+        .coursework-title {
+            font-weight: 600;
+            margin-top: 20px;
+            margin-bottom: 15px;
+            color: #333;
+        }
+
+        .tag-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .tag {
+            background-color: #f0f8ff;
+            color: #0077b5;
+            padding: 6px 15px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            border: 1px solid #d4eaf7;
+        }
+
+        .skills-category {
+            margin-bottom: 30px;
+        }
+
+        .skills-category:last-child {
+            margin-bottom: 0;
+        }
+
+        .skills-category h4 {
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 15px;
+        }
+
+        .skills-list {
+            list-style: none;
+        }
+
+        .skills-list li {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 12px;
+            font-weight: 500;
+        }
+
+        .skill-dots {
+            display: flex;
+            gap: 5px;
+        }
+
+        .skill-dots .dot {
+            width: 12px;
+            height: 12px;
             border-radius: 50%;
-            animation: float 6s ease-in-out infinite;
+            background-color: #e0e0e0;
         }
 
-        /* Animations */
-        @keyframes glow {
-            from { text-shadow: 0 0 10px #00ff88; }
-            to { text-shadow: 0 0 20px #00ff88, 0 0 30px #00ff88; }
+        .skill-dots .dot.filled {
+            background-color: #0077b5;
         }
 
-        @keyframes typewriter {
-            from { width: 0; }
-            to { width: 100%; }
+        .soft-skills-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 15px;
         }
 
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
+        .soft-skills-list span {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-weight: 500;
         }
 
-        @keyframes shimmer {
-            0% { transform: translateX(-100%) translateY(-100%) rotate(45deg); }
-            100% { transform: translateX(100%) translateY(100%) rotate(45deg); }
+        .soft-skills-list i {
+            color: #2ecc71;
+            font-size: 18px;
         }
 
-        @keyframes float {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-20px); }
+        .achievement-item {
+            display: flex;
+            gap: 20px;
+            align-items: flex-start;
         }
 
-        /* Responsive */
-        @media (max-width: 768px) {
-            .hero-content h1 {
-                font-size: 2.5rem;
-            }
-            
-            .nav-links {
-                flex-direction: column;
-                gap: 15px;
-            }
-            
-            .section h2 {
-                font-size: 2rem;
-            }
-            
-            .contact-links {
-                flex-direction: column;
-                align-items: center;
-            }
+        .achievement-item:not(:last-child) {
+            margin-bottom: 25px;
+        }
 
-            #chat-window {
-                width: 280px;
-                right: -10px;
-            }
+        .achievement-item .icon-bg {
+            flex-shrink: 0;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+        }
+
+        .achievement-item .icon-bg.star {
+            background-color: #fffbeb;
+            color: #f59e0b;
+        }
+
+        .achievement-item .icon-bg.trophy {
+            background-color: #eff6ff;
+            color: #3b82f6;
+        }
+
+        .achievement-item h4 {
+            font-weight: 600;
+            font-size: 1.1rem;
+            margin-bottom: 3px;
+        }
+
+        .achievement-item p {
+            margin-bottom: 0;
+            font-size: 0.9rem;
+        }
+
+        /* Projects Section */
+        .projects-section {
+            padding: 80px 0;
+            background-color: #fff;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            font-weight: 600;
+            margin-bottom: 50px;
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+        }
+
+        .project-card {
+            background-color: #fdfcf8;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+            border: 1px solid #f0f0f0;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .project-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+        }
+
+        .project-card img {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+        }
+
+        .project-content {
+            padding: 25px;
+        }
+
+        .project-content h3 {
+            font-size: 1.4rem;
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+
+        .project-content p {
+            font-size: 0.95rem;
+            color: #555;
+            margin-bottom: 20px;
+        }
+
+        .project-links {
+            margin-top: 20px;
+            display: flex;
+            gap: 15px;
+        }
+
+        .project-links .btn {
+            padding: 8px 20px;
+            font-size: 0.9rem;
+        }
+
+        /* Contact Section */
+        .contact-section {
+            padding: 80px 0;
+            background-color: #fdfcf8;
+        }
+
+        .contact-form-container {
+            max-width: 700px;
+            margin: 0 auto;
+            background-color: #fff;
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.07);
+            border: 1px solid #f0f0f0;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            font-weight: 500;
+            margin-bottom: 8px;
+            color: #333;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            font-family: 'Poppins', sans-serif;
+            font-size: 1rem;
+            transition: border-color 0.3s ease;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: #0077b5;
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        .submit-btn {
+            width: 100%;
+            border: none;
+            font-size: 1.1rem;
+            cursor: pointer;
         }
     </style>
 </head>
+
 <body>
-    <div class="matrix-bg" id="matrixBg"></div>
-    <div class="interactive-bg" id="interactiveBg"></div>
 
     <header>
         <nav class="container">
-            <div class="logo">ASR.dev</div>
+            <div class="logo">Aditya Singh Rawat</div>
             <ul class="nav-links">
                 <li><a href="#home">Home</a></li>
                 <li><a href="#about">About</a></li>
-                <li><a href="#skills">Skills</a></li>
                 <li><a href="#projects">Projects</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
@@ -490,107 +677,231 @@
 
     <main>
         <section id="home" class="hero">
-            <div class="hero-content">
-                <h1>ADITYA SINGH RAWAT</h1>
-                <p class="subtitle">AI & Blockchain Architect</p>
-                <p class="description">
-                    Crafting the future with intelligent algorithms and decentralized technologies. 
-                    Specializing in cutting-edge AI solutions and blockchain innovations.
-                </p>
-                <a href="#" class="cta-button" id="open-chat">CHAT WITH MY ASSISTANT</a>
-            </div>
-        </section>
-
-        <section id="about" class="section">
-            <div class="container">
-                <h2>SYSTEM.OVERVIEW</h2>
-                <p style="text-align: center; font-size: 1.2rem; max-width: 800px; margin: 0 auto;">
-                    I'm a passionate software developer with expertise in artificial intelligence and blockchain technology. 
-                    My mission is to build revolutionary applications that push the boundaries of what's possible, 
-                    creating intelligent systems that solve real-world problems while leveraging the power of decentralized networks.
-                </p>
-            </div>
-        </section>
-
-        <section id="skills" class="section">
-            <div class="container">
-                <h2>CORE.MODULES</h2>
-                <div class="skills-grid">
-                    <div class="skill-card">
-                        <div class="skill-icon">🤖</div>
-                        <h3>Artificial Intelligence</h3>
-                        <p>Machine Learning, Deep Learning, Neural Networks, NLP, Computer Vision, TensorFlow, PyTorch</p>
+            <div class="container hero-container">
+                <div class="hero-left">
+                    <img src="adi.jpeg" alt="Aditya Singh Rawat" class="profile-pic">
+                    <h1>Hi, I'm <span class="name-gradient">Aditya Singh Rawat</span></h1>
+                    <p class="subtitle">Data Science & Programming Student</p>
+                    <p class="university">Indian Institute of Technology, Madras</p>
+                    <p class="description">
+                        Passionate about blockchain, AI, and software development.
+                        My goal is to change how people think about code by building innovative and impactful solutions.
+                    </p>
+                    <div class="hero-buttons">
+                        <a href="#" class="btn btn-primary"><i class='bx bxs-download'></i> Download Resume</a>
+                        <!-- <a href="#" class="btn btn-secondary">View My Work</a> -->
                     </div>
-                    <div class="skill-card">
-                        <div class="skill-icon">⛓️</div>
-                        <h3>Blockchain Development</h3>
-                        <p>Smart Contracts, Solidity, Web3, DeFi, NFTs, Ethereum, Polygon, Hyperledger</p>
+                    <div class="social-links">
+                        <a href="https://www.linkedin.com/in/aditya-singh-rawat/" aria-label="LinkedIn"><i
+                                class='bx bxl-linkedin-square'></i></a>
+                        <a href="https://github.com/Kenshiro-Ida" aria-label="GitHub"><i class='bx bxl-github'></i></a>
+                        <a href="mailto:work.adityasinghrawat@gmail.com" aria-label="Email"><i
+                                class='bx bxs-envelope'></i></a>
                     </div>
-                    <div class="skill-card">
-                        <div class="skill-icon">💻</div>
-                        <h3>Full-Stack Development</h3>
-                        <p>React, Node.js, Python, JavaScript, TypeScript, MongoDB, PostgreSQL, AWS</p>
-                    </div>
-                    <div class="skill-card">
-                        <div class="skill-icon">🔬</div>
-                        <h3>Data Science</h3>
-                        <p>Data Analysis, Visualization, Statistical Modeling, Pandas, NumPy, Scikit-learn</p>
+                </div>
+                <div class="hero-right">
+                    <div class="skills-card">
+                        <div class="internship-status">
+                            <span class="dot"></span>
+                            <span>Available for internships</span>
+                        </div>
+                        <div class="progress-bar-container">
+                            <div class="progress-bar" style="width: 85%;"></div>
+                        </div>
+                        <div class="progress-label">
+                            <span>Skills Progress</span>
+                            <span>85%</span>
+                        </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <section id="projects" class="section">
+        <section id="about" class="about-section">
+            <div class="container about-container">
+                <aside class="about-sidebar">
+                    <img src="adi.jpeg" alt="Aditya Singh Rawat" class="profile-pic-large">
+                    <h2>Aditya Singh Rawat</h2>
+                    <p class="subtitle">Data Science & Programming Student</p>
+                    <hr>
+                    <ul class="contact-info">
+                        <li><i class='bx bxs-envelope'></i> work.adityasinghrawat@gmail.com</li>
+                        <li><i class='bx bxs-map'></i> New Delhi, India</li>
+                        <li><i class='bx bxs-graduation'></i> IIT Madras</li>
+                    </ul>
+                    <div class="social-links">
+                        <a href="https://www.linkedin.com/in/aditya-singh-rawat/" aria-label="LinkedIn"><i
+                                class='bx bxl-linkedin-square'></i></a>
+                        <a href="https://github.com/Kenshiro-Ida" aria-label="GitHub"><i class='bx bxl-github'></i></a>
+                    </div>
+                </aside>
+
+                <div class="about-content">
+                    <div class="content-card">
+                        <h3>About Me</h3>
+                        <p>I'm a passionate Data Science and Programming student at IIT Madras, driven by the endless
+                            possibilities that technology offers to solve real-world problems. My journey is fueled by a
+                            fascination with AI, blockchain, and robust software development.</p>
+                        <p>I am committed to transforming complex ideas into reality through clean, efficient code. My
+                            goal is not just to build applications, but to change how people think about and interact
+                            with technology, making it more accessible and powerful for everyone.</p>
+                        <p>What sets me apart is my ability to approach complex problems with both analytical thinking
+                            and creative problem-solving. I believe that the best software solutions are those that not
+                            only function flawlessly but also provide intuitive user experiences. This philosophy drives
+                            my commitment to writing clean, efficient code while maintaining a user-centric design
+                            approach.</p>
+                    </div>
+
+                    <div class="content-card academic-info">
+                        <h3>Academic Background</h3>
+                        <h4>Bachelor of Science in Data Science and Programming</h4>
+                        <p class="university">Indian Institute of Technology, Madras</p>
+                        <p><strong>Current GPA:</strong> 7.7/10</p>
+
+                        <h5 class="coursework-title">Relevant Coursework:</h5>
+                        <div class="tag-container">
+                            <span class="tag">Machine Learning</span>
+                            <span class="tag">Database Management</span>
+                            <span class="tag">Blockchain Foundations</span>
+                            <span class="tag">Web Development</span>
+                            <span class="tag">Data Structures & Algorithms</span>
+                            <span class="tag">Software Engineering</span>
+                        </div>
+                    </div>
+
+                    <div class="content-card">
+                        <h3>Core Skills</h3>
+                        <div class="skills-category">
+                            <h4>Programming Languages</h4>
+                            <ul class="skills-list">
+                                <li><span>Python</span> <span class="skill-dots"><span class="dot filled"></span><span
+                                            class="dot filled"></span><span class="dot filled"></span><span
+                                            class="dot filled"></span><span class="dot"></span></span></li>
+                                <li><span>JavaScript</span> <span class="skill-dots"><span
+                                            class="dot filled"></span><span class="dot filled"></span><span
+                                            class="dot filled"></span><span class="dot"></span><span
+                                            class="dot"></span></span></li>
+                                <li><span>Solidity</span> <span class="skill-dots"><span class="dot filled"></span><span
+                                            class="dot filled"></span><span class="dot filled"></span><span
+                                            class="dot filled"></span><span class="dot"></span></span></li>
+                                <li><span>MySQL</span> <span class="skill-dots"><span class="dot filled"></span><span
+                                            class="dot filled"></span><span class="dot filled"></span><span
+                                            class="dot"></span><span class="dot"></span></span></li>
+                            </ul>
+                        </div>
+                        <div class="skills-category">
+                            <h4>Frameworks & Tools</h4>
+                            <div class="tag-container">
+                                <span class="tag">React</span>
+                                <span class="tag">Node.js</span>
+                                <span class="tag">TensorFlow</span>
+                                <span class="tag">PyTorch</span>
+                                <span class="tag">Hardhat</span>
+                                <span class="tag">Truffle</span>
+                                <span class="tag">Web3.js</span>
+                                <span class="tag">Git</span>
+                                <span class="tag">Docker</span>
+                                <span class="tag">Pandas</span>
+                            </div>
+                        </div>
+                        <div class="skills-category">
+                            <h4>Soft Skills</h4>
+                            <div class="soft-skills-list">
+                                <span><i class='bx bx-check'></i> Problem Solving</span>
+                                <span><i class='bx bx-check'></i> Team Collaboration</span>
+                                <span><i class='bx bx-check'></i> Communication</span>
+                                <span><i class='bx bx-check'></i> Leadership</span>
+                                <span><i class='bx bx-check'></i> Adaptability</span>
+                                <span><i class='bx bx-check'></i> Critical Thinking</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="projects" class="projects-section">
             <div class="container">
-                <h2>PROJECT.ARCHIVE</h2>
+                <h2 class="section-title">Projects</h2>
                 <div class="projects-grid">
                     <div class="project-card">
-                        <h3>Pandora Blockchain</h3>
-                        <p>A comprehensive blockchain-based solution for pharmaceutical supply chain tracking and verification, ensuring product authenticity and transparency throughout the distribution process.</p>
-                        <div class="project-tags">
-                            <span class="tag">Blockchain</span>
-                            <span class="tag">Flask</span>
-                            <span class="tag">Solidity</span>
-                            <span class="tag">Truffle</span>
+                        <img src="https://images.unsplash.com/photo-1517694712202-14dd9538aa97?auto=format&fit=crop&w=400&h=220&q=80"
+                            alt="Project One">
+                        <div class="project-content">
+                            <h3>Project One Title</h3>
+                            <p>A brief description of the project, its purpose, and the technologies used. This project
+                                solves a real-world problem by leveraging modern frameworks and tools.</p>
+                            <div class="tag-container">
+                                <span class="tag">React</span>
+                                <span class="tag">Node.js</span>
+                                <span class="tag">API</span>
+                            </div>
+                            <div class="project-links">
+                                <a href="#" class="btn btn-secondary">View Project</a>
+                                <a href="#" class="btn btn-secondary">Source Code</a>
+                            </div>
                         </div>
                     </div>
                     <div class="project-card">
-                        <h3>Custom Programming Language</h3>
-                        <p>Designed and implemented a whimsical, interpreted programming language inspired by Python, featuring custom syntax with desi phrases and emojis. Developed a custom lexer and interpreter in Python to tokenize and execute <code>.rot</code> files, supporting variables, conditionals, loops, functions, and user input. Ensured a safe evaluation environment for executing user-defined scripts.</p>
-                        <div class="project-tags">
-                            <span class="tag">Python</span>
-                            <span class="tag">Interpreter</span>
-                            <span class="tag">Lexer</span>
-                            <span class="tag">Scripting</span>
-                            <span class="tag">Custom Language</span>
+                        <img src="https://images.unsplash.com/photo-1550745165-9bc0b252726a?auto=format&fit=crop&w=400&h=220&q=80"
+                            alt="Project Two">
+                        <div class="project-content">
+                            <h3>Project Two Title</h3>
+                            <p>An innovative mobile application that enhances user productivity. Developed with a focus
+                                on seamless user experience and robust performance on multiple platforms.</p>
+                            <div class="tag-container">
+                                <span class="tag">React Native</span>
+                                <span class="tag">Firebase</span>
+                                <span class="tag">UX/UI</span>
+                            </div>
+                            <div class="project-links">
+                                <a href="#" class="btn btn-secondary">View Project</a>
+                                <a href="#" class="btn btn-secondary">Source Code</a>
+                            </div>
                         </div>
                     </div>
                     <div class="project-card">
-                        <h3>MAXXNFT</h3>
-                        <p>Designed and deployed an NFT marketplace using Polygon Mainnet with custom smart contracts. Developed backend infrastructure with Python and Web3.py; integrated MySQL for metadata and user data storage. Implemented NFT minting, transfer automation, and real-time blockchain monitoring.</p>
-                        <div class="project-tags">
-                            <span class="tag">Polygon</span>
-                            <span class="tag">Web3.py</span>
-                            <span class="tag">Smart Contracts</span>
-                            <span class="tag">MySQL</span>
-                            <span class="tag">Python</span>
+                        <img src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=400&h=220&q=80"
+                            alt="Project Three">
+                        <div class="project-content">
+                            <h3>Project Three Title</h3>
+                            <p>A machine learning model for data analysis and prediction. This project demonstrates
+                                skills in data science, including data preprocessing, model training, and evaluation.
+                            </p>
+                            <div class="tag-container">
+                                <span class="tag">Python</span>
+                                <span class="tag">TensorFlow</span>
+                                <span class="tag">Data Science</span>
+                            </div>
+                            <div class="project-links">
+                                <a href="#" class="btn btn-secondary">View Project</a>
+                                <a href="#" class="btn btn-secondary">Source Code</a>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <section id="contact" class="section">
+        <section id="contact" class="contact-section">
             <div class="container">
-                <div class="contact">
-                    <h2>ESTABLISH.CONNECTION</h2>
-                    <p style="font-size: 1.2rem;">Ready to build the future together? Let's connect and create something extraordinary.</p>
-                    <div class="contact-links">
-                        <a href="mailto:work.adityasinghrawat@gmail.com" class="contact-link">EMAIL.PROTOCOL</a>
-                        <a href="https://linkedin.com/in/aditya-singh-rawat" class="contact-link">LINKEDIN.NET</a>
-                        <a href="https://github.com/kenshiro-ida" class="contact-link">GITHUB.REPO</a>
-                        <a href="https://x.com/AdityaR61245318" class="contact-link">X.FEED</a>
-                    </div>
+                <h2 class="section-title">Contact Me</h2>
+                <div class="contact-form-container">
+                    <form action="mailto:work.adityasinghrawat@gmail.com" method="post" enctype="text/plain">
+                        <div class="form-group">
+                            <label for="name">Your Name</label>
+                            <input type="text" id="name" name="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Your Email</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Message</label>
+                            <textarea id="message" name="message" required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary submit-btn">Send Message</button>
+                    </form>
                 </div>
             </div>
         </section>
@@ -598,103 +909,12 @@
 
     <footer>
         <div class="container">
-            <p>&copy; 2025 Aditya Singh Rawat. All systems operational. | Powered by AI & Blockchain</p>
+            <p>&copy; 2024 Aditya Singh Rawat. All Rights Reserved.</p>
         </div>
     </footer>
 
-    <!-- Chat Assistant -->
-    <div id="chat-assistant">
-        <button id="chat-toggle"></button>
-        <div id="chat-window">
-            <div id="chat-header">
-                <span>AI Assistant</span>
-                <button id="chat-close">×</button>
-            </div>
-            <div id="chat-messages">
-                <div class="bot">Hello! I'm Aditya's AI assistant. I can help you navigate this portfolio and answer questions about his work. What would you like to know?</div>
-            </div>
-            <form id="chat-form">
-                <input type="text" id="chat-input" placeholder="Type your message..." autocomplete="off" />
-                <button type="submit">→</button>
-            </form>
-        </div>
-    </div>
-
     <script>
-        // Matrix background effect
-        function createMatrixEffect() {
-            const canvas = document.createElement('canvas');
-            const ctx = canvas.getContext('2d');
-            document.getElementById('matrixBg').appendChild(canvas);
-
-            canvas.width = window.innerWidth;
-            canvas.height = window.innerHeight;
-
-            const chars = '01';
-            const charArray = chars.split('');
-            const fontSize = 10;
-            const columns = canvas.width / fontSize;
-            const drops = [];
-
-            for (let i = 0; i < columns; i++) {
-                drops[i] = 1;
-            }
-
-            function draw() {
-                ctx.fillStyle = 'rgba(10, 10, 10, 0.04)';
-                ctx.fillRect(0, 0, canvas.width, canvas.height);
-
-                ctx.fillStyle = '#00ff88';
-                ctx.font = fontSize + 'px monospace';
-
-                for (let i = 0; i < drops.length; i++) {
-                    const text = charArray[Math.floor(Math.random() * charArray.length)];
-                    ctx.fillText(text, i * fontSize, drops[i] * fontSize);
-
-                    if (drops[i] * fontSize > canvas.height && Math.random() > 0.975) {
-                        drops[i] = 0;
-                    }
-                    drops[i]++;
-                }
-            }
-
-            setInterval(draw, 35);
-        }
-
-        // Particle system
-        function createParticles() {
-            const container = document.getElementById('interactiveBg');
-            
-            for (let i = 0; i < 50; i++) {
-                const particle = document.createElement('div');
-                particle.className = 'particle';
-                particle.style.left = Math.random() * 100 + '%';
-                particle.style.top = Math.random() * 100 + '%';
-                particle.style.animationDelay = Math.random() * 6 + 's';
-                particle.style.opacity = Math.random() * 0.5 + 0.1;
-                container.appendChild(particle);
-            }
-        }
-
-        // Mouse interaction
-        document.addEventListener('mousemove', (e) => {
-            const particles = document.querySelectorAll('.particle');
-            particles.forEach(particle => {
-                const rect = particle.getBoundingClientRect();
-                const dx = e.clientX - (rect.left + rect.width / 2);
-                const dy = e.clientY - (rect.top + rect.height / 2);
-                const distance = Math.sqrt(dx * dx + dy * dy);
-                
-                if (distance < 100) {
-                    const force = (100 - distance) / 100;
-                    particle.style.transform = `translate(${dx * force * 0.3}px, ${dy * force * 0.3}px)`;
-                } else {
-                    particle.style.transform = 'translate(0, 0)';
-                }
-            });
-        });
-
-        // Smooth scrolling
+        // Smooth scrolling for anchor links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
@@ -707,149 +927,7 @@
                 }
             });
         });
-
-        // Intersection Observer for animations
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
-        };
-
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.style.opacity = '1';
-                    entry.target.style.transform = 'translateY(0)';
-                }
-            });
-        }, observerOptions);
-
-        document.querySelectorAll('.skill-card, .project-card').forEach(card => {
-            card.style.opacity = '0';
-            card.style.transform = 'translateY(30px)';
-            card.style.transition = 'all 0.6s ease';
-            observer.observe(card);
-        });
-
-        // Glitch effect on logo
-        setInterval(() => {
-            const logo = document.querySelector('.logo');
-            logo.style.textShadow = `
-                ${Math.random() * 10}px 0 #ff0000,
-                ${Math.random() * -10}px 0 #00ffff
-            `;
-            setTimeout(() => {
-                logo.style.textShadow = '0 0 10px #00ff88';
-            }, 100);
-        }, 3000);
-
-        // Chat functionality
-        const chatToggle = document.getElementById('chat-toggle');
-        const chatWindow = document.getElementById('chat-window');
-        const chatClose = document.getElementById('chat-close');
-        const chatForm = document.getElementById('chat-form');
-        const chatInput = document.getElementById('chat-input');
-        const chatMessages = document.getElementById('chat-messages');
-        const openChatBtn = document.getElementById('open-chat');
-
-        // Bot responses
-        const botResponses = {
-            greetings: [
-                "Hello! I'm here to help you learn more about Aditya's work.",
-                "Hi there! What would you like to know about Aditya?",
-                "Hey! I can tell you about Aditya's projects and skills."
-            ],
-            skills: [
-                "Aditya specializes in AI/ML, blockchain development, full-stack development, and data science. Click on 'Skills' in the header to see more details!",
-                "His core expertise includes machine learning, smart contracts, React/Node.js, and data analysis. Check out the Skills section above!"
-            ],
-            projects: [
-                "Aditya has worked on amazing projects like DecentraAI Network, Neural Trading Bot, Smart Contract Auditor, and Quantum-Resistant Wallet. Click 'Projects' to explore them!",
-                "His project portfolio includes AI marketplaces, trading bots, security tools, and crypto wallets. Head to the Projects section to learn more!"
-            ],
-            contact: [
-                "You can reach Aditya through email, LinkedIn, GitHub, or Twitter. Check out the Contact section below!",
-                "All contact information is available in the Contact section. Scroll down or click 'Contact' in the navigation!"
-            ],
-            about: [
-                "Aditya is a passionate developer focused on AI and blockchain technologies. Click 'About' in the header to read more!",
-                "He's dedicated to building revolutionary applications that solve real-world problems. The About section has more details!"
-            ],
-            default: [
-                "That's interesting! Is there something specific about Aditya's work you'd like to know?",
-                "I can help you learn about Aditya's skills, projects, or how to contact him. What interests you?",
-                "Feel free to ask about his AI projects, blockchain work, or technical expertise!"
-            ]
-        };
-
-        function getBotResponse(message) {
-            const msg = message.toLowerCase();
-            
-            if (msg.includes('hello') || msg.includes('hi') || msg.includes('hey')) {
-                return getRandomResponse(botResponses.greetings);
-            } else if (msg.includes('skill') || msg.includes('expertise') || msg.includes('technology')) {
-                return getRandomResponse(botResponses.skills);
-            } else if (msg.includes('project') || msg.includes('work') || msg.includes('portfolio')) {
-                return getRandomResponse(botResponses.projects);
-            } else if (msg.includes('contact') || msg.includes('reach') || msg.includes('email')) {
-                return getRandomResponse(botResponses.contact);
-            } else if (msg.includes('about') || msg.includes('who') || msg.includes('background')) {
-                return getRandomResponse(botResponses.about);
-            } else {
-                return getRandomResponse(botResponses.default);
-            }
-        }
-
-        function getRandomResponse(responses) {
-            return responses[Math.floor(Math.random() * responses.length)];
-        }
-
-        function addMessage(content, isUser = false) {
-            const messageDiv = document.createElement('div');
-            messageDiv.className = isUser ? 'user' : 'bot';
-            messageDiv.textContent = content;
-            chatMessages.appendChild(messageDiv);
-            chatMessages.scrollTop = chatMessages.scrollHeight;
-        }
-
-        // Chat event listeners
-        chatToggle.addEventListener('click', () => {
-            chatWindow.style.display = chatWindow.style.display === 'flex' ? 'none' : 'flex';
-        });
-
-        chatClose.addEventListener('click', () => {
-            chatWindow.style.display = 'none';
-        });
-
-        openChatBtn.addEventListener('click', (e) => {
-            e.preventDefault();
-            chatWindow.style.display = 'flex';
-        });
-
-        chatForm.addEventListener('submit', (e) => {
-            e.preventDefault();
-            const message = chatInput.value.trim();
-            if (message) {
-                addMessage(message, true);
-                chatInput.value = '';
-                
-                setTimeout(() => {
-                    addMessage(getBotResponse(message));
-                }, 500);
-            }
-        });
-
-        // Initialize effects
-        createMatrixEffect();
-        createParticles();
-
-        // Resize handler for matrix effect
-        window.addEventListener('resize', () => {
-            const canvas = document.querySelector('#matrixBg canvas');
-            if (canvas) {
-                canvas.width = window.innerWidth;
-                canvas.height = window.innerHeight;
-            }
-        });
     </script>
 </body>
+
 </html>
