@@ -651,7 +651,7 @@
             background-color: transparent;
         }
 
-        .contact-form-container {
+        .contact-message-container {
             max-width: 700px;
             margin: 0 auto;
             background-color: rgba(255, 255, 255, 0.4);
@@ -662,46 +662,25 @@
             box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
             border: 1px solid rgba(255, 255, 255, 0.25);
             transition: background 0.3s ease, border-color 0.3s ease;
+            text-align: center;
         }
 
-        .form-group {
-            margin-bottom: 20px;
-        }
-
-        .form-group label {
-            display: block;
-            font-weight: 500;
-            margin-bottom: 8px;
-            color: #333;
-        }
-
-        .form-group input,
-        .form-group textarea {
-            width: 100%;
-            padding: 12px;
-            border: 1px solid #ddd;
-            border-radius: 8px;
-            font-family: 'Poppins', sans-serif;
-            font-size: 1rem;
-            transition: border-color 0.3s ease;
-        }
-
-        .form-group input:focus,
-        .form-group textarea:focus {
-            outline: none;
-            border-color: #0077b5;
-        }
-
-        .form-group textarea {
-            resize: vertical;
-            min-height: 120px;
-        }
-
-        .submit-btn {
-            width: 100%;
-            border: none;
+        .contact-message-container p {
             font-size: 1.1rem;
+            margin-bottom: 30px;
+        }
+
+        .contact-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .copy-email-btn {
             cursor: pointer;
+            text-decoration: none;
+            color: inherit;
         }
 
         /* Theme Toggle */
@@ -764,7 +743,7 @@
         body.dark-mode .about-sidebar,
         body.dark-mode .content-card,
         body.dark-mode .project-card,
-        body.dark-mode .contact-form-container {
+        body.dark-mode .contact-message-container {
             background-color: rgba(30, 30, 30, 0.5);
             backdrop-filter: blur(12px);
             -webkit-backdrop-filter: blur(12px);
@@ -777,6 +756,7 @@
         body.dark-mode .description,
         body.dark-mode .internship-status,
         body.dark-mode .progress-label,
+        body.dark-mode .contact-message-container p,
         body.dark-mode p,
         body.dark-mode .contact-info li,
         body.dark-mode .form-group label {
@@ -855,8 +835,8 @@
                         <a href="https://www.linkedin.com/in/aditya-singh-rawat/" aria-label="LinkedIn"><i
                                 class='bx bxl-linkedin-square'></i></a>
                         <a href="https://github.com/Kenshiro-Ida" aria-label="GitHub"><i class='bx bxl-github'></i></a>
-                        <a href="mailto:work.adityasinghrawat@gmail.com" aria-label="Email"><i
-                                class='bx bxs-envelope'></i></a>
+                        <a href="#" class="copy-email-btn" data-email="work.adityasinghrawat@gmail.com"
+                            aria-label="Copy Email"><i class='bx bxs-envelope'></i></a>
                     </div>
                 </div>
                 <div class="hero-right">
@@ -885,7 +865,13 @@
                     <p class="subtitle">Data Science & Programming Student</p>
                     <hr>
                     <ul class="contact-info">
-                        <li><i class='bx bxs-envelope'></i> work.adityasinghrawat@gmail.com</li>
+                        <li>
+                            <a href="#" class="copy-email-btn" data-email="work.adityasinghrawat@gmail.com"
+                                style="display: flex; align-items: center; gap: 15px;">
+                                <i class='bx bxs-envelope'></i>
+                                <span class="email-text">work.adityasinghrawat@gmail.com</span>
+                            </a>
+                        </li>
                         <li><i class='bx bxs-map'></i> New Delhi, India</li>
                         <li><i class='bx bxs-graduation'></i> IIT Madras</li>
                     </ul>
@@ -1048,23 +1034,16 @@
 
         <section id="contact" class="contact-section">
             <div class="container">
-                <h2 class="section-title">Contact Me</h2>
-                <div class="contact-form-container">
-                    <form action="mailto:work.adityasinghrawat@gmail.com" method="post" enctype="text/plain">
-                        <div class="form-group">
-                            <label for="name">Your Name</label>
-                            <input type="text" id="name" name="name" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="email">Your Email</label>
-                            <input type="email" id="email" name="email" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="message">Message</label>
-                            <textarea id="message" name="message" required></textarea>
-                        </div>
-                        <button type="submit" class="btn btn-primary submit-btn">Send Message</button>
-                    </form>
+                <h2 class="section-title">Get In Touch</h2>
+                <div class="contact-message-container">
+                    <p>The best way to reach me is by sending an email or connecting on LinkedIn. I'm always open to
+                        discussing new projects, creative ideas, or opportunities to be part of your visions.</p>
+                    <div class="contact-buttons">
+                        <a href="#" class="btn btn-primary copy-email-btn"
+                            data-email="work.adityasinghrawat@gmail.com"><i class='bx bxs-envelope'></i> Copy Email</a>
+                        <a href="https://www.linkedin.com/in/aditya-singh-rawat/" target="_blank"
+                            class="btn btn-secondary"><i class='bx bxl-linkedin-square'></i> LinkedIn Profile</a>
+                    </div>
                 </div>
             </div>
         </section>
@@ -1118,6 +1097,25 @@
         // Apply saved theme on page load
         const savedTheme = localStorage.getItem('theme') || 'dark';
         applyTheme(savedTheme);
+
+        // Copy email to clipboard
+        document.querySelectorAll('.copy-email-btn').forEach(button => {
+            button.addEventListener('click', function (e) {
+                e.preventDefault();
+                const email = this.getAttribute('data-email');
+                const originalContent = this.innerHTML;
+                navigator.clipboard.writeText(email).then(() => {
+                    this.innerHTML = `<i class='bx bx-check'></i> Copied!`;
+                    this.classList.add('btn-primary-copied'); // Optional: for different styling
+                    setTimeout(() => {
+                        this.innerHTML = originalContent;
+                        this.classList.remove('btn-primary-copied');
+                    }, 2000);
+                }).catch(err => {
+                    console.error('Failed to copy email: ', err);
+                });
+            });
+        });
 
     </script>
 </body>
